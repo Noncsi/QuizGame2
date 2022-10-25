@@ -1,20 +1,24 @@
-import {
-  playerFactory,
-  TopicAndQuestionFactory,
-} from "../helperFunctions/DataFactory";
+import { IGame } from "./model";
+import { playerFactory, questionFactory } from "../helperFunctions/DataFactory";
 import { Player } from "./Player";
-import { QuestionTopic } from "./questions/QuestionTopic";
+import { Category } from "./questions/Category";
+import { Guid } from "guid-typescript";
 
 export class Game {
   players: Player[];
-  currentPlayer: Player;
-  topics: QuestionTopic[];
+  currentPlayer: Player | undefined;
+  baseQuestions: Category[];
+  isGameStage: Boolean;
 
-  constructor(playerData: any, questionData: any) {
-    this.players = playerFactory(playerData.players);
-    this.currentPlayer = playerData.currentplayer
-      ? this.players.find((p) => (p.id = playerData.currentPlayer))!
+  constructor(importedGame: IGame) {
+    this.players = playerFactory(importedGame.playerData.players);
+    this.currentPlayer = importedGame.playerData.currentPlayer
+      ? this.players.find((p) =>
+          p.id.equals(Guid.parse(importedGame.playerData.currentPlayer))
+        )
       : this.players[0];
-    this.topics = TopicAndQuestionFactory(questionData.topics);
+
+    this.baseQuestions = questionFactory(importedGame.questionData);
+    this.isGameStage = false;
   }
 }

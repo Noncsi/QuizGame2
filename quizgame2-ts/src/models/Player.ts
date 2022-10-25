@@ -5,7 +5,7 @@ export class Player {
   name: string;
   score: number;
 
-  constructor(name: string, score: number = 0, id = Guid.create()) {
+  constructor(name: string, score: number = 0, id: Guid = Guid.create()) {
     this.id = id;
     this.name = name;
     this.score = score;

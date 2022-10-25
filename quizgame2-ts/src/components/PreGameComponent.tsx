@@ -1,5 +1,6 @@
 import React from "react";
 import { Player } from "../models/Player";
+import { Box } from "@mui/material";
 
 import NewPlayerForm from "./playerElements/NewPlayerForm";
 import PlayerContainer from "./playerElements/PlayerContainer";
@@ -7,27 +8,36 @@ import StartGameButtonComponent from "./StartGameButtonComponent";
 
 function PreGameComponent(props: any) {
   const addNewPlayerToPlayers = (playerName: string) => {
-    if (!props.players.some((player: Player) => player.name === playerName))
-      props.setPlayers((prevPlayers: Player[]) => {
-        return [new Player(playerName), ...prevPlayers];
-      });
+    if (props.game.players.some((player: Player) => player.name === playerName))
+      return;
+    props.setGame({
+      ...props.game,
+      players: [...props.game.players, new Player(playerName)],
+    });
   };
 
   return (
     <>
-      <div className="column-container">
-        <div id="column-1" className="column">
+      <Box display="flex">
+        <Box flex="1" justifyContent="center">
           <NewPlayerForm nameSubmitHandler={addNewPlayerToPlayers} />
-        </div>
-        <div id="column-2" className="column">
-          <PlayerContainer players={props.players} />
-        </div>
-        <div id="column-3" className="column">
+          <PlayerContainer game={props.game} />
+        </Box>
+        <Box
+          flex="1"
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "60vh",
+          }}
+        >
           <StartGameButtonComponent
-            startGame={props.startGame}
+            startGame={props.setGame}
           ></StartGameButtonComponent>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 }

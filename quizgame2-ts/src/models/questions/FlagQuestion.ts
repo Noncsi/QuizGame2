@@ -1,6 +1,6 @@
 import { Question } from "./Question";
 
-export class ExtraQuestionFlag extends Question {
+export class FlagQuestion extends Question {
   flag: any;
 
   constructor(flag: any, answer: string) {

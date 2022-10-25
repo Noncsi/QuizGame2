@@ -1,6 +1,6 @@
 import { Question } from "./Question";
 
-export class ExtraQuestionSong extends Question {
+export class SongQuestion extends Question {
   track: any;
 
   constructor(track: any, answer: string) {
