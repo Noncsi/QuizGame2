@@ -1,9 +1,9 @@
 import { Player } from "../models/Player";
 import { Question } from "../models/questions/Question";
-import { Category } from "../models/questions/Category";
+import { Topic } from "../models/questions/Topic";
 
 import { Guid } from "guid-typescript";
-import { ICategory, IQuestion } from "../models/model";
+import { ITopic, IQuestion } from "../models/model";
 
 export const playerFactory = (playerData: any) => {
   const asd = playerData.map(
@@ -13,10 +13,10 @@ export const playerFactory = (playerData: any) => {
   return asd;
 };
 
-export const questionFactory = (questions: ICategory[]) => {
+export const questionFactory = (questions: ITopic[]) => {
   return questions.map(
-    (baseQuestion: ICategory) =>
-      new Category(
+    (baseQuestion: ITopic) =>
+      new Topic(
         baseQuestion.name,
         baseQuestion.questionsByLevels.map((level: IQuestion[]) => {
           return level.map(
@@ -27,12 +27,3 @@ export const questionFactory = (questions: ICategory[]) => {
       )
   );
 };
-
-// jsonTopics.map(
-//   (object: any) => new QuestionTopic(object.level, object.question, object.answer)
-// );
-
-// export const questionCategoryFactory = (jsonQuestionCategories: any) =>
-//   jsonQuestionCategories.map(
-//     (object: any) => new QuestionCategory(object.name, object.questions)
-//   );

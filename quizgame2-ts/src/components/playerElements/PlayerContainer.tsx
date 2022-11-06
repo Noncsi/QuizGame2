@@ -7,13 +7,12 @@ import PlayerElement from "./PlayerElement";
 
 export default function PlayerContainer(props: any) {
   const renderPlayer = (player: Player) => {
-    const isCurrent =
-      props.game.isGameStage && player.id.equals(props.game.currentPlayer.id);
     return (
       <PlayerElement
         player={player}
         key={player.id}
-        isCurrent={isCurrent}
+        game={props.game}
+        setGame={props.setGame}
       ></PlayerElement>
     );
   };

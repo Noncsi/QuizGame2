@@ -17,28 +17,27 @@ function PreGameComponent(props: any) {
   };
 
   return (
-    <>
-      <Box display="flex">
-        <Box flex="1" justifyContent="center">
-          <NewPlayerForm nameSubmitHandler={addNewPlayerToPlayers} />
-          <PlayerContainer game={props.game} />
-        </Box>
-        <Box
-          flex="1"
-          justifyContent="center"
-          alignItems="center"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            height: "60vh",
-          }}
-        >
-          <StartGameButtonComponent
-            startGame={props.setGame}
-          ></StartGameButtonComponent>
-        </Box>
+    <Box display="flex">
+      <Box flex="1" justifyContent="center">
+        <NewPlayerForm nameSubmitHandler={addNewPlayerToPlayers} />
+        <PlayerContainer game={props.game} setGame={props.setGame} />
       </Box>
-    </>
+      <Box
+        flex="1"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          height: "60vh",
+        }}
+      >
+        <StartGameButtonComponent
+          game={props.game}
+          setGame={props.setGame}
+        ></StartGameButtonComponent>
+      </Box>
+    </Box>
   );
 }
 

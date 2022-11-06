@@ -11,8 +11,8 @@ import {
 } from "@mui/material";
 
 import PlayerContainer from "./playerElements/PlayerContainer";
-import { Category } from "../models/questions/Category";
-import TopicComponent from "./QuestionTableComponent";
+import { Topic as Topic } from "../models/questions/Topic";
+import TopicComponent from "./TopicComponent";
 
 export default function GameComponent(props: any) {
   const selectFirstPlayer = () => {
@@ -47,7 +47,7 @@ export default function GameComponent(props: any) {
             flex: "1 1 33%",
           }}
         >
-          <PlayerContainer game={props.game} />
+          <PlayerContainer game={props.game} setGame={props.setGame} />
           <Button onClick={selectNextPlayer}>Next</Button>
         </Box>
         <Box
@@ -58,17 +58,19 @@ export default function GameComponent(props: any) {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Category</TableCell>
+                <TableCell>Topic</TableCell>
                 <TableCell>Level 1</TableCell>
                 <TableCell>Level 2</TableCell>
                 <TableCell>Level 3</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {props.game.baseQuestions.map((baseQuestion: Category) => (
+              {props.game.baseQuestions.map((topic: Topic) => (
                 <TopicComponent
-                  key={baseQuestion.topicTitle}
-                  topic={baseQuestion}
+                  key={topic.title}
+                  topic={topic}
+                  game={props.game}
+                  setGame={props.setGame}
                 />
               ))}
             </TableBody>

@@ -47,6 +47,15 @@ export const smartiniTheme = createTheme({
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          textAlign: "center",
+          padding: "2px",
+          margin: "5px",
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: `
         @font-face {

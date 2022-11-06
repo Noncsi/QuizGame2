@@ -2,7 +2,7 @@ import { Guid } from "guid-typescript";
 
 export interface IGame {
   playerData: IPlayerData;
-  questionData: ICategory[];
+  questionData: ITopic[];
 }
 
 // players
@@ -19,10 +19,10 @@ export interface IPlayer {
 
 // questions
 export interface IQuestionData {
-  categories: ICategory[];
+  categories: ITopic[];
 }
 
-export interface ICategory {
+export interface ITopic {
   name: string;
   questionsByLevels: IQuestion[][];
 }
