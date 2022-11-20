@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
-import { smartiniTheme } from "./SmartiniTheme";
+import { smartiniTheme } from "./styles/SmartiniTheme";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);

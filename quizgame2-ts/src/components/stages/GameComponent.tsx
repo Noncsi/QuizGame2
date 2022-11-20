@@ -10,9 +10,10 @@ import {
   Button,
 } from "@mui/material";
 
-import PlayerContainer from "./playerElements/PlayerContainer";
-import { Topic as Topic } from "../models/questions/Topic";
-import TopicComponent from "./TopicComponent";
+import PlayerContainer from "../playerElements/PlayerContainer";
+import { Topic as Topic } from "../../models/questions/Topic";
+import TopicComponent from "../TopicComponent";
+import NavbarComponent from "../NavbarComponent";
 
 export default function GameComponent(props: any) {
   const selectFirstPlayer = () => {
@@ -35,6 +36,7 @@ export default function GameComponent(props: any) {
   };
   return (
     <>
+      <NavbarComponent></NavbarComponent>
       <Grid
         container
         columns={12}

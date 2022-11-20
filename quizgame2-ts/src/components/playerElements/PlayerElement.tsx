@@ -54,7 +54,7 @@ export default function PlayerElement(props: any) {
     >
       <CardContent>
         <Typography variant="h6">{props.player.name}</Typography>
-        <Typography>{props.player.score}</Typography>
+        <Typography>Score: {props.player.score}</Typography>
       </CardContent>
       {renderThrashIcon()}
     </Card>

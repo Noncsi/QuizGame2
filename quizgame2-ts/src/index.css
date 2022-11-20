@@ -4,16 +4,8 @@ body {
   width: 100%;
   margin: 0;
   overflow: hidden;
-  background-image: url("./images/bricks.jpg");
+  background-image: url("./images/bricks.png");
   background-position-y: -1200px;
   background-size: 100vw 120vh;
   font-family: system-ui;
-  background: linear-gradient(
-    114deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(38, 13, 37, 1) 51%,
-    rgba(77, 26, 75, 1) 67%,
-    rgba(145, 22, 142, 1) 83%,
-    rgba(212, 17, 208, 1) 100%
-  );
 }
