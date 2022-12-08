@@ -3,7 +3,6 @@ import { Box, Typography, Button } from "@mui/material";
 
 import LogoComponent from "../LogoComponent";
 import BackgroundComponent1 from "../BackgroundComponent1";
-import { smartiniTheme } from "../../styles/SmartiniTheme";
 
 function MainPageComponent(props: any) {
   const newGame = () => {
@@ -22,6 +21,7 @@ function MainPageComponent(props: any) {
           width: "100%",
           justifyContent: "space-around",
           marginTop: "25vh",
+          position: "relative",
         }}
       >
         <Box display="flex">
@@ -38,27 +38,31 @@ function MainPageComponent(props: any) {
               sx={{
                 color: "white",
                 fontSize: "2rem",
-                fontWeight: "lighter",
-                fontFamily: "system-ui",
               }}
             >
               Your game night quiz.
             </Typography>
           </Box>
         </Box>
-        <Button
-          onClick={newGame}
-          variant="contained"
-          sx={{
-            fontSize: "2pc;",
-            color: "primary",
-            borderRadius: "100px",
-            height: "120px",
-            width: "250px",
-          }}
-        >
-          New Game
-        </Button>
+        <Box>
+          <Button
+            onClick={newGame}
+            variant="contained"
+            sx={{
+              fontSize: "30px",
+              height: "120px",
+              width: "250px",
+            }}
+          >
+            New Game
+          </Button>
+          <Typography sx={{ color: "white" }}>
+            Would you like to pick up where you left off?
+          </Typography>
+          <Button sx={{ fontSize: "16px" }} variant="outlined">
+            Load Game
+          </Button>
+        </Box>
       </Box>
     </>
   );

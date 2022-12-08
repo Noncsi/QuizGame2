@@ -46,7 +46,6 @@ function PlayerCreationComponent(props: any) {
             onClick={startGame}
             variant="contained"
             sx={{
-              fontFamily: "BeautySchoolDropOut",
               fontSize: "3pc;",
               color: "white",
               borderRadius: "100px",
