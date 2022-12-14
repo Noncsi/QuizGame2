@@ -14,17 +14,10 @@ function MainPageComponent(props: any) {
 
   return (
     <>
-      <BackgroundComponent1></BackgroundComponent1>
-      <Box
-        sx={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-around",
-          marginTop: "25vh",
-          position: "relative",
-        }}
-      >
-        <Box display="flex">
+      <BackgroundComponent1 />
+      <Box height="100px"></Box>
+      <Box className="two-column-container">
+        <Box className="item-left">
           <Box
             sx={{
               display: "flex",
@@ -33,35 +26,40 @@ function MainPageComponent(props: any) {
             }}
             flex="1"
           >
-            <LogoComponent size={"10rem"}></LogoComponent>
+            <LogoComponent size={"10rem"} />
             <Typography
               sx={{
                 color: "white",
-                fontSize: "2rem",
+                fontSize: "35px",
               }}
             >
-              Your game night quiz.
+              Your game night quiz
             </Typography>
           </Box>
         </Box>
-        <Box>
+        <Box className="item-right">
           <Button
             onClick={newGame}
             variant="contained"
             sx={{
-              fontSize: "30px",
-              height: "120px",
-              width: "250px",
+              fontSize: "40px",
+              height: "110px",
+              width: "280px",
             }}
           >
             New Game
           </Button>
-          <Typography sx={{ color: "white" }}>
-            Would you like to pick up where you left off?
-          </Typography>
-          <Button sx={{ fontSize: "16px" }} variant="outlined">
-            Load Game
-          </Button>
+          <Box sx={{ marginTop: "50px" }}>
+            <Typography sx={{ fontSize: "19px", color: "white" }}>
+              Would you like to pick up where you left off?
+            </Typography>
+            <Button
+              sx={{ fontSize: "20px", height: "50", width: "170" }}
+              variant="outlined"
+            >
+              Load Game
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>
