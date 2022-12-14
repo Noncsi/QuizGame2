@@ -17,3 +17,20 @@ body {
   background-position-y: -1200px;
   background-size: 100vw 120vh;
 }
+
+.two-column-container {
+  display: flex;
+  width: 100%;
+  margin-top: 150px;
+  position: relative;
+}
+
+.two-column-container .item-left {
+  width: 65%;
+}
+
+.two-column-container .item-right {
+  width: 35%;
+  align-items: center;
+  text-align: center;
+}

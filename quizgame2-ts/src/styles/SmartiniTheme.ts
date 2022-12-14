@@ -34,6 +34,7 @@ export const smartiniTheme = createTheme({
           height: "50px",
           padding: "10px",
           margin: "5px",
+          textTransform: "capitalize",
         },
         outlined: { color: "white", borderColor: "white" },
       },

@@ -24,13 +24,22 @@ export default function NewPlayerForm(props: any) {
       >
         <InputBase
           color="secondary"
-          sx={{ backgroundColor: "white" }}
+          sx={{
+            backgroundColor: "white",
+            width: "320px",
+            height: "75px",
+            borderRadius: "50px",
+          }}
           value={enteredPlayerName}
           onChange={updateEnteredPlayerName}
           type="text"
         />
-        <Button type="submit" variant="contained">
-          Add player
+        <Button
+          sx={{ fontSize: "20px", width: "220px", height: "60px" }}
+          type="submit"
+          variant="outlined"
+        >
+          Add new player
         </Button>
       </Box>
     </form>

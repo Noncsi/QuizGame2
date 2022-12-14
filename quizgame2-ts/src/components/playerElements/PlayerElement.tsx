@@ -5,6 +5,7 @@ import {
   Typography,
   CardActions,
   IconButton,
+  Box,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -19,9 +20,20 @@ export default function PlayerElement(props: any) {
     ) : (
       <CardActions>
         <IconButton>
-          <DeleteIcon onClick={deletePlayer}></DeleteIcon>
+          <DeleteIcon
+            sx={{ color: "white" }}
+            onClick={deletePlayer}
+          ></DeleteIcon>
         </IconButton>
       </CardActions>
+    );
+  };
+
+  const renderScore = () => {
+    return props.game.isGameStage ? (
+      <Typography>Score: {props.player.score}</Typography>
+    ) : (
+      <></>
     );
   };
 
@@ -38,25 +50,31 @@ export default function PlayerElement(props: any) {
   };
 
   return (
-    <Card
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        m: 1,
-        maxWidth: 400,
-        overflow: "unset",
-        backgroundColor:
-          props.game.isGameStage &&
-          props.player.id.equals(props.game.currentPlayer.id)
-            ? purple[500]
-            : "white",
-      }}
-    >
-      <CardContent>
-        <Typography variant="h6">{props.player.name}</Typography>
-        <Typography>Score: {props.player.score}</Typography>
-      </CardContent>
+    <Box display={"flex"}>
+      <Card
+        sx={{
+          justifyContent: "center",
+          display: "flex",
+          m: 1,
+          padding: "5px",
+          maxWidth: 400,
+          overflow: "unset",
+          width: "250px",
+          height: "50px",
+          color: "white",
+          backgroundColor:
+            props.game.isGameStage &&
+            props.player.id.equals(props.game.currentPlayer.id)
+              ? purple[500]
+              : "rgba(255,255,255,0.2)",
+        }}
+      >
+        <CardContent>
+          <Typography variant="h6">{props.player.name}</Typography>
+          {renderScore()}
+        </CardContent>
+      </Card>
       {renderThrashIcon()}
-    </Card>
+    </Box>
   );
 }

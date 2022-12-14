@@ -1,11 +1,12 @@
 import React from "react";
 import { Player } from "../../models/Player";
-import { AppBar, Box, Button, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 
 import NewPlayerForm from "../playerElements/NewPlayerForm";
 import PlayerContainer from "../playerElements/PlayerContainer";
 import LogoComponent from "../LogoComponent";
 import NavbarComponent from "../NavbarComponent";
+import BackgroundComponent1 from "../BackgroundComponent1";
 
 function PlayerCreationComponent(props: any) {
   const addNewPlayerToPlayers = (playerName: string) => {
@@ -26,35 +27,38 @@ function PlayerCreationComponent(props: any) {
 
   return (
     <>
-      <NavbarComponent></NavbarComponent>
-      <Box display="flex">
-        <Box flex="1" justifyContent="center">
+      <BackgroundComponent1 />
+      <NavbarComponent />
+      <Box className="two-column-container">
+        <Box className="item-left">
           <NewPlayerForm nameSubmitHandler={addNewPlayerToPlayers} />
           <PlayerContainer game={props.game} setGame={props.setGame} />
         </Box>
-        <Box
-          flex="1"
-          justifyContent="center"
-          alignItems="center"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            height: "60vh",
-          }}
-        >
+        <Box className="item-right">
           <Button
             onClick={startGame}
             variant="contained"
             sx={{
-              fontSize: "3pc;",
+              fontSize: "40px",
               color: "white",
               borderRadius: "100px",
-              height: "120px",
-              width: "250px",
+              height: "110px",
+              width: "280px",
             }}
           >
             Play
           </Button>
+          <Box sx={{ marginTop: "50px" }}>
+            <Typography sx={{ fontSize: "19px", color: "white" }}>
+              You can always check the rules during the game.
+            </Typography>
+            <Button
+              sx={{ fontSize: "20px", height: "50", width: "170" }}
+              variant="outlined"
+            >
+              Rules
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>

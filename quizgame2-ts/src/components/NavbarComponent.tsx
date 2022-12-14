@@ -8,7 +8,8 @@ function NavbarComponent(props: any) {
     <AppBar
       position="static"
       sx={{
-        height: "200px",
+        height: "100px",
+        flexDirection: "row",
         justifyContent: "flex-start",
         backgroundColor: "rgb(0, 0, 0, 0%)",
         boxShadow: "none",
