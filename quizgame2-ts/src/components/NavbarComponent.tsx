@@ -18,7 +18,8 @@ function NavbarComponent(props: any) {
     >
       <LogoComponent></LogoComponent>
       <Toolbar sx={{ justifyContent: "flex-start" }}>
-        {<Button color="inherit">Rules</Button>}
+        <Button color="inherit">About</Button>
+        <Button color="inherit">Rules</Button>
       </Toolbar>
     </AppBar>
   );

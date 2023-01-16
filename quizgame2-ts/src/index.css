@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: "BeautySchoolDropout";
-  src: url(./fonts/BeautySchoolDropout.ttf) format(truetype);
+  src: url("./fonts/BeautySchoolDropout.ttf") format("truetype");
 }
 
 html,
