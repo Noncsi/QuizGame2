@@ -1,10 +1,9 @@
 import React from "react";
 import { Player } from "../../models/Player";
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import NewPlayerForm from "../playerElements/NewPlayerForm";
 import PlayerContainer from "../playerElements/PlayerContainer";
-import LogoComponent from "../LogoComponent";
 import NavbarComponent from "../NavbarComponent";
 import BackgroundComponent1 from "../BackgroundComponent1";
 

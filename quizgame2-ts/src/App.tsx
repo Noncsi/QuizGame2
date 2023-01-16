@@ -15,7 +15,7 @@ const importedGame: IGame = require("../src/data/gameData.json");
 function App() {
   const [game, setGame] = useState(new Game(importedGame));
 
-  const loadComponentAccordingToCurrentStage = () => {
+  const loadCurrentStage = () => {
     switch (game.stage) {
       case 0:
         return (
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <Box sx={{ margin: " 0 5vw 0 5vw", height: "70vh" }}>
-      {loadComponentAccordingToCurrentStage()}
+      {loadCurrentStage()}
     </Box>
   );
 }
