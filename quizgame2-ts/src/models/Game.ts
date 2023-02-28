@@ -12,19 +12,20 @@ enum STAGE {
 
 export class Game {
   players: Player[];
-  currentPlayer: Player | undefined;
+  currentPlayer: Player;
   baseQuestions: Topic[];
   stage: STAGE;
 
   constructor(importedGame: IGame) {
     this.players = playerFactory(importedGame.playerData.players);
-    this.currentPlayer = importedGame.playerData.currentPlayer
-      ? this.players.find((p) =>
-          p.id.equals(Guid.parse(importedGame.playerData.currentPlayer))
-        )
+    const currentPlayerResult = this.players.find((p) =>
+      p.id.equals(Guid.parse(importedGame.playerData.currentPlayerId))
+    );
+    this.currentPlayer = currentPlayerResult
+      ? currentPlayerResult
       : this.players[0];
 
     this.baseQuestions = questionFactory(importedGame.questionData);
-    this.stage = 0; // set to main at release
+    this.stage = 0;
   }
 }

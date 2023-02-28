@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Typography, Button } from "@mui/material";
 
 import LogoComponent from "../LogoComponent";
 import BackgroundComponent1 from "../BackgroundComponent1";
+import { GameContext } from "../../GameContext";
 
-function MainPageComponent(props: any) {
+export default function MainPageComponent() {
+  const gameContext = useContext(GameContext);
   const newGame = () => {
-    props.setGame({
-      ...props.game,
+    gameContext.setGame({
+      ...gameContext.game,
       stage: 1,
     });
   };
@@ -56,6 +58,7 @@ function MainPageComponent(props: any) {
             <Button
               sx={{ fontSize: "20px", height: "50", width: "170" }}
               variant="outlined"
+              disabled
             >
               Load Game
             </Button>
@@ -65,5 +68,3 @@ function MainPageComponent(props: any) {
     </>
   );
 }
-
-export default MainPageComponent;

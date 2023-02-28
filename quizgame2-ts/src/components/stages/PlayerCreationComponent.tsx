@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Player } from "../../models/Player";
 import { Box, Button, Typography } from "@mui/material";
 
@@ -6,20 +6,27 @@ import NewPlayerForm from "../playerElements/NewPlayerForm";
 import PlayerContainer from "../playerElements/PlayerContainer";
 import NavbarComponent from "../NavbarComponent";
 import BackgroundComponent1 from "../BackgroundComponent1";
+import { GameContext } from "../../GameContext";
 
-function PlayerCreationComponent(props: any) {
+function PlayerCreationComponent() {
+  const gameContext = useContext(GameContext);
+
   const addNewPlayerToPlayers = (playerName: string) => {
-    if (props.game.players.some((player: Player) => player.name === playerName))
+    if (
+      gameContext.game.players.some(
+        (player: Player) => player.name === playerName
+      )
+    )
       return;
-    props.setGame({
-      ...props.game,
-      players: [...props.game.players, new Player(playerName)],
+    gameContext.setGame({
+      ...gameContext.game,
+      players: [...gameContext.game.players, new Player(playerName)],
     });
   };
 
   const startGame = () => {
-    props.setGame({
-      ...props.game,
+    gameContext.setGame({
+      ...gameContext.game,
       stage: 2,
     });
   };
@@ -31,7 +38,10 @@ function PlayerCreationComponent(props: any) {
       <Box className="two-column-container">
         <Box className="item-left">
           <NewPlayerForm nameSubmitHandler={addNewPlayerToPlayers} />
-          <PlayerContainer game={props.game} setGame={props.setGame} />
+          <PlayerContainer
+            game={gameContext.game}
+            setGame={gameContext.setGame}
+          />
         </Box>
         <Box className="item-right">
           <Button

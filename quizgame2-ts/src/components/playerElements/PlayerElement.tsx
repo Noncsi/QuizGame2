@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -14,26 +14,30 @@ import { purple } from "@mui/material/colors";
 import { Player } from "../../models/Player";
 
 export default function PlayerElement(props: any) {
-  const renderThrashIcon = () => {
-    return props.game.isGameStage ? (
-      <></>
-    ) : (
-      <CardActions>
-        <IconButton>
-          <DeleteIcon
-            sx={{ color: "white" }}
-            onClick={deletePlayer}
-          ></DeleteIcon>
-        </IconButton>
-      </CardActions>
+  const [showDeleteButton, setShowDeleteButton] = useState(false);
+
+  const toggleDeleteButton = () => {
+    setShowDeleteButton(!showDeleteButton);
+  };
+
+  const renderDeleteButton = () => {
+    return (
+      props.game.stage !== 2 &&
+      showDeleteButton && (
+        <CardActions>
+          <IconButton onClick={deletePlayer}>
+            <DeleteIcon sx={{ color: "white" }}></DeleteIcon>
+          </IconButton>
+        </CardActions>
+      )
     );
   };
 
   const renderScore = () => {
-    return props.game.isGameStage ? (
-      <Typography>Score: {props.player.score}</Typography>
-    ) : (
-      <></>
+    return (
+      props.game.stage === 2 && (
+        <Typography>Score: {props.player.score}</Typography>
+      )
     );
   };
 
@@ -50,7 +54,11 @@ export default function PlayerElement(props: any) {
   };
 
   return (
-    <Box display={"flex"}>
+    <Box
+      display={"flex"}
+      onMouseEnter={toggleDeleteButton}
+      onMouseLeave={toggleDeleteButton}
+    >
       <Card
         sx={{
           justifyContent: "center",
@@ -63,7 +71,7 @@ export default function PlayerElement(props: any) {
           height: "50px",
           color: "white",
           backgroundColor:
-            props.game.isGameStage &&
+            props.game.stage === 2 &&
             props.player.id.equals(props.game.currentPlayer.id)
               ? purple[500]
               : "rgba(255,255,255,0.2)",
@@ -74,7 +82,7 @@ export default function PlayerElement(props: any) {
           {renderScore()}
         </CardContent>
       </Card>
-      {renderThrashIcon()}
+      {renderDeleteButton()}
     </Box>
   );
 }

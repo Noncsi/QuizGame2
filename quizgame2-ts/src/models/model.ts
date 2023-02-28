@@ -7,7 +7,7 @@ export interface IGame {
 
 // players
 export interface IPlayerData {
-  currentPlayer: string;
+  currentPlayerId: string;
   players: IPlayer[];
 }
 
