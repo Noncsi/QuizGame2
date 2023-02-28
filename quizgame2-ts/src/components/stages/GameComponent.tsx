@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Grid,
   Table,
@@ -14,29 +14,32 @@ import PlayerContainer from "../playerElements/PlayerContainer";
 import { Topic as Topic } from "../../models/questions/Topic";
 import TopicComponent from "../TopicComponent";
 import NavbarComponent from "../NavbarComponent";
+import { GameContext } from "../../GameContext";
 
-export default function GameComponent(props: any) {
+export default function GameComponent() {
+  const gameContext = useContext(GameContext);
+
   const selectFirstPlayer = () => {
-    const firstPlayer = props.game.players[0];
-    props.setGame({
-      ...props.game,
+    const firstPlayer = gameContext.game.players[0];
+    gameContext.setGame({
+      ...gameContext.game,
       currentPlayer: firstPlayer,
     });
   };
 
   const selectNextPlayer = () => {
     const newPlayerIndex =
-      props.game.players.indexOf(props.game.currentPlayer) + 1;
-    newPlayerIndex === props.game.players.length
+      gameContext.game.players.indexOf(gameContext.game.currentPlayer) + 1;
+    newPlayerIndex === gameContext.game.players.length
       ? selectFirstPlayer()
-      : props.setGame({
-          ...props.game,
-          currentPlayer: props.game.players[newPlayerIndex],
+      : gameContext.setGame({
+          ...gameContext.game,
+          currentPlayer: gameContext.game.players[newPlayerIndex],
         });
   };
   return (
     <>
-      <NavbarComponent></NavbarComponent>
+      <NavbarComponent />
       <Grid
         container
         columns={12}
@@ -49,7 +52,10 @@ export default function GameComponent(props: any) {
             flex: "1 1 33%",
           }}
         >
-          <PlayerContainer game={props.game} setGame={props.setGame} />
+          <PlayerContainer
+            game={gameContext.game}
+            setGame={gameContext.setGame}
+          />
           <Button onClick={selectNextPlayer}>Next</Button>
         </Box>
         <Box
@@ -67,12 +73,12 @@ export default function GameComponent(props: any) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {props.game.baseQuestions.map((topic: Topic) => (
+              {gameContext.game.baseQuestions.map((topic: Topic) => (
                 <TopicComponent
                   key={topic.title}
                   topic={topic}
-                  game={props.game}
-                  setGame={props.setGame}
+                  game={gameContext.game}
+                  setGame={gameContext.setGame}
                 />
               ))}
             </TableBody>

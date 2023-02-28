@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppBar, Button, Toolbar } from "@mui/material";
 
 import LogoComponent from "../components/LogoComponent";
+import { GameContext } from "../GameContext";
 
-function NavbarComponent(props: any) {
+function NavbarComponent() {
+  const gameContext = useContext(GameContext);
+  const renderSaveButton = () => {
+    gameContext.game.stage === 2 && <Button color="inherit">Save</Button>;
+  };
+
   return (
     <AppBar
       position="static"
@@ -16,10 +22,11 @@ function NavbarComponent(props: any) {
         padding: "20px",
       }}
     >
-      <LogoComponent></LogoComponent>
+      <LogoComponent />
       <Toolbar sx={{ justifyContent: "flex-start" }}>
         <Button color="inherit">About</Button>
         <Button color="inherit">Rules</Button>
+        {renderSaveButton()}
       </Toolbar>
     </AppBar>
   );
