@@ -67,8 +67,8 @@ export default function PlayerElement(props: any) {
           padding: "5px",
           maxWidth: 400,
           overflow: "unset",
-          width: "250px",
-          height: "50px",
+          width: "200px",
+          height: "fit-content",
           color: "white",
           backgroundColor:
             props.game.stage === 2 &&

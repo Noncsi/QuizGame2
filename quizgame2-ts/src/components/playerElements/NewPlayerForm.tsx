@@ -29,13 +29,18 @@ export default function NewPlayerForm(props: any) {
             width: "320px",
             height: "75px",
             borderRadius: "50px",
+            textAlignLast: "center",
           }}
           value={enteredPlayerName}
           onChange={updateEnteredPlayerName}
           type="text"
         />
         <Button
-          sx={{ fontSize: "20px", width: "220px", height: "60px" }}
+          sx={{
+            fontSize: "20px",
+            width: "220px",
+            height: "60px",
+          }}
           type="submit"
           variant="outlined"
         >

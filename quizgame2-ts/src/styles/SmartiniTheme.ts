@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 export const smartiniTheme = createTheme({
   palette: {
     primary: {
-      main: "#410A42",
+      main: "#201245",
     },
     secondary: {
       main: purple[500],

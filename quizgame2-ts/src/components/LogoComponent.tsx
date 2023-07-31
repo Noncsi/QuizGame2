@@ -9,7 +9,8 @@ export default function LogoComponent(props: any) {
         display: "flex",
         justifyContent: "center",
         color: "white",
-        marginBottom: "50px",
+        marginBottom: "8px",
+        marginTop: "30px",
       }}
     >
       <Typography
@@ -18,10 +19,9 @@ export default function LogoComponent(props: any) {
         sx={{
           fontFamily: "BeautySchoolDropout",
           textAlign: "center",
-          fontSize: `max(min(4vw, 10em), ${props.size})`,
-          transform: "rotate(-10deg)",
+          fontSize: `max(min(3vw, 9em), ${props.size})`,
           margin: "-13px",
-          marginTop: "15px",
+          marginTop: "0px",
           textShadow:
             "0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f400ff, 0 0 82px #f400ff, 0 0 92px #f400ff, 0 0 102px #f400ff, 0 0 151px #f400ff",
         }}
@@ -30,9 +30,8 @@ export default function LogoComponent(props: any) {
       </Typography>
       <SvgIcon
         sx={{
-          marginTop: "10px",
           fontSize: `max(min(4vw, 10em), ${props.size})`,
-          marginLeft: "50px",
+          marginLeft: "20px",
           filter:
             "drop-shadow(0 0 10px #fff) drop-shadow(0 0 21px #fff) drop-shadow(0 0 42px #f400ff) drop-shadow(0 0 82px #f400ff)",
         }}

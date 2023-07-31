@@ -1,14 +1,19 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Button,
   Dialog,
   DialogActions,
   DialogTitle,
   Slide,
+  Typography,
 } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import React from "react";
 import { Player } from "../models/Player";
 import { Question } from "../models/questions/Question";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -65,9 +70,22 @@ export default function QuestionElement(props: any) {
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
+        sx={{ textAlign: "center" }}
       >
         <DialogTitle>{question.question}</DialogTitle>
         <DialogActions>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>Válasz</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{question.answer}</Typography>
+            </AccordionDetails>
+          </Accordion>
           <Button onClick={wrongAnswerHandler}>Wrong answer</Button>
           <Button onClick={rightAnswerHandler}>Right answer</Button>
         </DialogActions>

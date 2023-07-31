@@ -1,19 +1,19 @@
 import { createRoot } from "react-dom/client";
-import "./index.css";
+import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import React from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import { smartiniTheme } from "./styles/SmartiniTheme";
+// import { ThemeProvider } from "@mui/material/styles";
+// import { smartiniTheme } from "./styles/SmartiniTheme";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={smartiniTheme}>
-      <App />
-    </ThemeProvider>
+    {/* <ThemeProvider theme={smartiniTheme}> */}
+    <App />
+    {/* </ThemeProvider> */}
   </React.StrictMode>
 );
 

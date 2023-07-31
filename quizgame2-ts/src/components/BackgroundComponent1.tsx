@@ -4,7 +4,7 @@ import purple from "@mui/material/colors/purple";
 export default function BackgroundComponent1() {
   return (
     <>
-      <Box // 1. neon line (from left)
+      {/* <Box // 1. neon line (from left)
         sx={{
           position: "fixed",
           top: "-154px",
@@ -39,6 +39,7 @@ export default function BackgroundComponent1() {
           width: "551px",
           transform: "rotate(20deg)",
           backgroundColor: purple[500],
+          opacity: 0.8,
         }}
       ></Box>
       <Box // 3. neon line (from left, side of purple box)
@@ -66,7 +67,7 @@ export default function BackgroundComponent1() {
           boxShadow:
             "0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f400ff, 0 0 82px #f400ff, 0 0 92px #f400ff, 0 0 102px #f400ff, 0 0 151px #f400ff",
         }}
-      ></Box>
+      ></Box> */}
     </>
   );
 }

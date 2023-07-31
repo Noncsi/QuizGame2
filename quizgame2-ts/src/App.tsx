@@ -1,10 +1,10 @@
-import React, { createContext, useState } from "react";
-import "./index.css";
+import React, { useState } from "react";
+import "./index.scss";
 
-import MainPageComponent from "./components/stages/MainPageComponent";
-import GameComponent from "./components/stages/GameComponent";
+import MainPageComponent from "./components/gameStages/MainPageComponent";
+import GameComponent from "./components/gameStages/GameComponent";
 import { Box } from "@mui/material";
-import PlayerCreationComponent from "./components/stages/PlayerCreationComponent";
+import PlayerCreationComponent from "./components/gameStages/PlayerCreationComponent";
 import { Game } from "./models/Game";
 import { IGame } from "./models/model";
 import { GameContext } from "./GameContext";
