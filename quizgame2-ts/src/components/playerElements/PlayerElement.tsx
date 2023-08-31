@@ -67,8 +67,8 @@ export default function PlayerElement(props: any) {
           padding: "5px",
           maxWidth: 400,
           overflow: "unset",
-          width: "200px",
-          height: "fit-content",
+          width: "150px",
+          height: "50px",
           color: "white",
           backgroundColor:
             props.game.stage === 2 &&
@@ -78,7 +78,7 @@ export default function PlayerElement(props: any) {
         }}
       >
         <CardContent>
-          <Typography variant="h6">{props.player.name}</Typography>
+          <Box>{props.player.name}</Box>
           {renderScore()}
         </CardContent>
       </Card>

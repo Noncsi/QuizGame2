@@ -1,10 +1,14 @@
 import { Question } from "./Question";
+import { Track } from "./Track";
 
 export class SongQuestion extends Question {
-  track: any;
+  track: Track;
 
-  constructor(track: any, answer: string) {
-    super("What is the title and who is the artist of this song?", answer);
+  constructor(track: Track) {
+    super(
+      "What is the title and who is the artist of this song?",
+      `${track.artist} - ${track.title}`
+    );
     this.track = track;
   }
 }

@@ -72,18 +72,19 @@ export default function QuestionElement(props: any) {
         onClose={handleClose}
         sx={{ textAlign: "center" }}
       >
-        <DialogTitle>{question.question}</DialogTitle>
-        <DialogActions>
+        <DialogTitle sx={{ color: "black" }}>{question.question}</DialogTitle>
+        <DialogActions sx={{ color: "black" }}>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              sx={{ color: "black" }}
             >
               <Typography>Válasz</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>{question.answer}</Typography>
+              <Typography sx={{ color: "black" }}>{question.answer}</Typography>
             </AccordionDetails>
           </Accordion>
           <Button onClick={wrongAnswerHandler}>Wrong answer</Button>

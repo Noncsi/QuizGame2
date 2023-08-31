@@ -1,6 +1,7 @@
 import { Button, InputBase, Box } from "@mui/material";
 import React from "react";
 import { useState } from "react";
+import { secondaryButtonStyle } from "../customElementStyles/SecondaryButtonStyle";
 
 export default function NewPlayerForm(props: any) {
   const [enteredPlayerName, setEnteredPlayerName] = useState("");
@@ -30,20 +31,15 @@ export default function NewPlayerForm(props: any) {
             height: "75px",
             borderRadius: "50px",
             textAlignLast: "center",
+            "& input": {
+              textAlign: "center",
+            },
           }}
           value={enteredPlayerName}
           onChange={updateEnteredPlayerName}
           type="text"
         />
-        <Button
-          sx={{
-            fontSize: "20px",
-            width: "220px",
-            height: "60px",
-          }}
-          type="submit"
-          variant="outlined"
-        >
+        <Button sx={secondaryButtonStyle} type="submit">
           Add new player
         </Button>
       </Box>

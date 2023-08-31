@@ -29,10 +29,13 @@ export const smartiniTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontSize: "16px",
+          color: "white",
+          backgroundColor: "#46355d",
           borderRadius: "100px",
           width: "150px",
-          height: "50px",
-          padding: "10px",
+          height: "44px",
+          padding: "8px",
           margin: "5px",
           textTransform: "capitalize",
         },

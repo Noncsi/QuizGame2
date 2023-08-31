@@ -32,3 +32,9 @@ export interface IQuestion {
   question: string;
   answer: string;
 }
+
+export interface ITrack {
+  id: string;
+  title: string;
+  artist: string;
+}

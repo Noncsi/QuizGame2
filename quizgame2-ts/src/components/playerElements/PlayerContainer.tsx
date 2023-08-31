@@ -21,7 +21,8 @@ export default function PlayerContainer(props: any) {
     <>
       <Stack
         sx={{
-          maxHeight: "50vh",
+          flexWrap: "wrap",
+          maxHeight: "35vh",
           overflowY: "auto",
           overflowX: "hidden",
           alignItems: "center",

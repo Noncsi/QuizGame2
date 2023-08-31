@@ -10,9 +10,8 @@ export default function TopicComponent(props: any) {
       <TableCell sx={{ color: "white" }}>{props.topic.title}</TableCell>
       {props.topic.questionsByLevels.map((questions: Question[]) => {
         return (
-          <TableCell>
+          <TableCell key={Guid.create().toString()}>
             <QuestionElement
-              key={Guid.create()}
               questions={questions}
               game={props.game}
               setGame={props.setGame}
