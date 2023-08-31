@@ -3,6 +3,7 @@ import { AppBar, Box, Button, Modal, Toolbar, Typography } from "@mui/material";
 
 import LogoComponent from "../components/LogoComponent";
 import { GameContext } from "../GameContext";
+import { buttonStyle } from "./customElementStyles/ButtonStyle";
 
 function NavbarComponent() {
   const gameContext = useContext(GameContext);
@@ -22,7 +23,7 @@ function NavbarComponent() {
   };
 
   const style = {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -44,11 +45,11 @@ function NavbarComponent() {
         padding: "20px",
       }}
     >
-      <Button onClick={toMainPage}>
+      <Button sx={buttonStyle}>
         <LogoComponent />
       </Button>
       <Toolbar sx={{ justifyContent: "flex-start" }}>
-        <Button onClick={handleOpen} color="inherit">
+        <Button sx={buttonStyle} onClick={handleOpen}>
           About
         </Button>
         <Modal
@@ -62,7 +63,7 @@ function NavbarComponent() {
             </Typography>
           </Box>
         </Modal>
-        <Button color="inherit">Rules</Button>
+        <Button sx={buttonStyle}>Rules</Button>
         {renderSaveButton()}
       </Toolbar>
     </AppBar>
